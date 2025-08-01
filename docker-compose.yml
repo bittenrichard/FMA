@@ -5,6 +5,15 @@ services:
     image: bittenrichard/recrutamentoai-backend:latest
     networks:
       - Foco
+    environment:
+      - FRONTEND_URL=https://recrutamentoia.com.br
+      - VITE_BASEROW_API_KEY=anGucsRrFCKrOmUYHapVYsr5U3FVK85o
+      - GOOGLE_CLIENT_ID=726048519835-4o31uj1ssftc47a08kcb8hs1hkm2v040.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=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
+      - GOOGLE_REDIRECT_URI=https://recrutamentoia.com.br/api/google/auth/callback
+      - N8N_TRIAGEM_WEBHOOK_URL=https://webhook.focoserv.com.br/webhook/recrutamento
+      - N8N_SCHEDULE_WEBHOOK_URL=https://webhook.focoserv.com.br/webhook/googleacesso
+      - NODE_ENV=production
     deploy:
       mode: replicated
       replicas: 1
@@ -21,14 +30,6 @@ services:
         - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
       restart_policy:
         condition: on-failure
-    environment:
-      - VITE_BASEROW_API_KEY=anGucsRrFCKrOmUYHapVYsr5U3FVK85o
-      - GOOGLE_CLIENT_ID=726048519835-4o31uj1ssftc47a08kcb8hs1hkm2v040.apps.googleusercontent.com
-      - GOOGLE_CLIENT_SECRET=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
-      - GOOGLE_REDIRECT_URI=https://recrutamentoia.com.br/api/google/auth/callback
-      - FRONTEND_URL=https://recrutamentoia.com.br
-      - N8N_SCHEDULE_WEBHOOK_URL=https://webhook.focoserv.com.br/webhook/googleacesso
-      - NODE_ENV=production
 
   frontend:
     image: bittenrichard/recrutamentoai-frontend:latest

@@ -44,5 +44,6 @@ services:
         condition: on-failure
 
 networks:
-  traefik_traefik: # <-- CERTIFIQUE-SE QUE ESTÁ ASSIM
+  Foco: ## Nome da rede interna
     external: true
+    name: Foco ## Nome da rede interna

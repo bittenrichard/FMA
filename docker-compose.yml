@@ -4,7 +4,7 @@ services:
   backend:
     image: bittenrichard/recrutamentoai-backend:latest
     networks:
-      - traefik_traefik # <-- ALTERADO AQUI
+      - Foco
     deploy:
       mode: replicated
       replicas: 1
@@ -25,7 +25,7 @@ services:
   frontend:
     image: bittenrichard/recrutamentoai-frontend:latest
     networks:
-      - traefik_traefik # <-- ALTERADO AQUI
+      - Foco
     deploy:
       mode: replicated
       replicas: 1
@@ -44,6 +44,6 @@ services:
         condition: on-failure
 
 networks:
-  Foco: ## Nome da rede interna
+  Foco:
+    name: Foco
     external: true
-    name: Foco ## Nome da rede interna

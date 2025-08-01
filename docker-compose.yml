@@ -44,5 +44,5 @@ services:
         condition: on-failure
 
 networks:
-  traefik_traefik: # <-- ALTERADO AQUI
+  traefik_traefik: # <-- CERTIFIQUE-SE QUE ESTÁ ASSIM
     external: true

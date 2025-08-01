@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
+    image: seu_usuario/recrutamentoai-backend:latest # Imagem do Docker Hub
     networks:
       - foco
     deploy:
@@ -25,9 +23,7 @@ services:
         condition: on-failure
 
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
+    image: foco/recrutamentoai-frontend:latest # Imagem do Docker Hub
     networks:
       - foco
     deploy:

@@ -44,5 +44,5 @@ services:
         condition: on-failure
 
 networks:
-  foco:
+  Foco:
     external: true

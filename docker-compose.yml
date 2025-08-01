@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile.frontend
     restart: unless-stopped
     networks:
-      - traefik_network
+      - Foco
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.recrutamentoai-frontend.rule=Host(`recrutamentoia.com.br`) || Host(`www.recrutamentoia.com.br`)"
